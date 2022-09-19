@@ -1,8 +1,12 @@
 import React from "react";
 import '../stylesheets/Game.css'
 import Button from './Button'
+import { useState } from 'react'
 
 function Game(props){
+
+    const [homeScore, setHomeScore] = useState(0);
+    const [awayScore, setAwayScore] = useState(0);
 
     const update = () => {
         console.log("UPDATE");
@@ -15,9 +19,9 @@ function Game(props){
     return(
         <div className="game-container">
             <p className="team-name">{props.homename}</p>
-            <p className="team-score">{props.homescore}</p>
+            <p className="team-score">{homeScore}</p>
             <span className="score-separator">-</span>
-            <p className="team-score">{props.awayscore}</p>
+            <p className="team-score">{awayScore}</p>
             <p className="team-name">{props.awayname}</p>
             <div className="buttons-container">
                 <Button 
@@ -26,7 +30,7 @@ function Game(props){
                     handler={update}
                 />
                 <Button 
-                    text="Delete"
+                    text="Finish"
                     isUpdateButton={false}
                     handler={remove}
                 />
