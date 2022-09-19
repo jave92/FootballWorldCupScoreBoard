@@ -8,14 +8,6 @@ function Game(props){
     const [homeScore, setHomeScore] = useState(0);
     const [awayScore, setAwayScore] = useState(0);
 
-    const update = () => {
-        console.log("UPDATE");
-    }
-
-    const remove = () => {
-        console.log("DELETE");
-    }
-
     return(
         <div className="game-container">
             <p className="team-name">{props.homename}</p>
@@ -27,12 +19,12 @@ function Game(props){
                 <Button 
                     text="Update"
                     isUpdateButton={true}
-                    handler={update}
+                    handler={props.updateHandler}
                 />
                 <Button 
                     text="Finish"
                     isUpdateButton={false}
-                    handler={remove}
+                    handler={props.finishHandler}
                 />
             </div>
         </div>
