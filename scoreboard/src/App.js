@@ -1,27 +1,31 @@
 import logo from './logo.svg';
 import './App.css';
 import Game from './components/Game'
+import { useState } from 'react';
 
 function App() {
+
+  const [games, setGames] = useState([
+    {
+      id: 1,
+      homename: "España",
+      homescore: 5,
+      awayname: "Francia",
+      awayscore: 0
+    }
+  ]);
+
   return (
     <div className="App">
       <div className='main-container'>
         <h1>Football World Cup Score Board</h1>
-        <Game 
-          homename='España'
-          homescore='5'
-          awayname='Francia'
-          awayscore='2'/>
+        {games.map( (item, index) => 
           <Game 
-          homename='Inglaterra'
-          homescore='3'
-          awayname='Dinamarca'
-          awayscore='0'/>
-          <Game 
-          homename='Portugal'
-          homescore='3'
-          awayname='Italia'
-          awayscore='3'/>
+          homename={item.homename}
+          homescore={item.homescore}
+          awayname={item.awayname}
+          awayscore={item.awayscore}/>
+        )}
       </div>
     </div>
   );
