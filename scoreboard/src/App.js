@@ -1,9 +1,12 @@
 import logo from './logo.svg';
 import './App.css';
 import Game from './components/Game'
+import GameDetails from './components/GameDetails';
 import { useState } from 'react';
 
 function App() {
+
+  const [showGameDetails, setShowGameDetails] = useState(false);
 
   const [games, setGames] = useState([
     {
@@ -39,13 +42,13 @@ function App() {
   }
 
   const updateGame = (id) => {
-  
   }
 
   return (
     <div className="App">
       <div className='main-container'>
         <h1>Football World Cup Score Board</h1>
+        <button onClick={() => setShowGameDetails(true)} className='btn-newgame'>Add new game</button>
         {games.map( (item, index) => 
           <Game 
           key = {index}
@@ -57,6 +60,14 @@ function App() {
           awayname={item.awayname}
           awayscore={item.awayscore}/>
         )}
+        
+        <GameDetails
+            show={showGameDetails}
+            isNewGame={true}
+            onClose={() => setShowGameDetails(false)}
+
+        />
+        
       </div>
     </div>
   );

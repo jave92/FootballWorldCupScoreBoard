@@ -10,7 +10,7 @@ html, body{
 
 h1{
   max-width: 940px;
-  font-size: 2.5em;
+  font-size: 3.2em;
   font-family: Lato, sans-serif;
   font-weight: 700;
   line-height: 1.1;
@@ -32,4 +32,15 @@ h1{
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
+}
+
+.btn-newgame{
+  position: fixed;
+  top: 50px;
+  left: 50px;
+  height: 70px;
+  width: 140px;
+  background-color: green;
+  padding: 20px;
+  text-align: center;
 }
