@@ -15,35 +15,68 @@ function GameDetails(props){
         title = "Update Game Score";
     }
 
-    const handleSubmit = () => {
-
-    }
-
     const changeHandler = () => {
 
     }
 
-
-    return(
-        <div className="modal">
-            <div className="modal-content">
-                <div className="modal-header">
-                    <h4 className="modal-title">{title}</h4>
-                </div>
-                <div className="modal-body">
-                    <form onSubmit={handleSubmit}>
-                        <label>
-                            Name: <input type="text" value={props.homename} onChange={changeHandler} />
-                        </label>
-                        <input type="submit" value="Submit" />
-                    </form>
-                </div>
-                <div className="modal-footer">
-                    <button onClick={props.onClose} className="button">Close</button>
+    if(!props.homename || !props.awayname){
+        return(
+            <div className="modal">
+                <div className="modal-content">
+                    <div className="modal-header">
+                        <h4 className="modal-title">{title}</h4>
+                    </div>
+                    <div className="modal-body">
+                        <form onSubmit={props.newGame}>
+                            <div>
+                            <label>
+                                Home team: <input type="text" onChange={changeHandler} />
+                            </label>
+                            </div>
+                            <div>
+                            <label>
+                                Away team: <input type="text" onChange={changeHandler} />
+                            </label>
+                            </div>
+                            <input type="submit" value="Submit" />
+                        </form>
+                    </div>
+                    <div className="modal-footer">
+                        <button onClick={props.onClose} className="button">Close</button>
+                    </div>
                 </div>
             </div>
-        </div>
-    );
+        );
+    }else{
+        return(
+            <div className="modal">
+                <div className="modal-content">
+                    <div className="modal-header">
+                        <h4 className="modal-title">{title}</h4>
+                    </div>
+                    <div className="modal-body">
+                        <form onSubmit={props.newGame}>
+                            <div>
+                            <label>
+                                Home team: <input name="homename" type="text" value={props.homename} onChange={changeHandler} />
+                            </label>
+                            </div>
+                            <div>
+                            <label>
+                                Away team: <input name="awayname" type="text" value={props.homename} onChange={changeHandler} />
+                            </label>
+                            </div>
+                            <input type="submit" value="Submit" />
+                        </form>
+                    </div>
+                    <div className="modal-footer">
+                        <button onClick={props.onClose} className="button">Close</button>
+                    </div>
+                </div>
+            </div>
+        );
+    }
+    
 }
 
 export default GameDetails;

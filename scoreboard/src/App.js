@@ -44,6 +44,10 @@ function App() {
   const updateGame = (id) => {
   }
 
+  const newGame = obj => {
+    setGames(games => [...games, obj]);
+  }
+
   return (
     <div className="App">
       <div className='main-container'>
@@ -64,6 +68,7 @@ function App() {
         <GameDetails
             show={showGameDetails}
             isNewGame={true}
+            newGame={newGame}
             onClose={() => setShowGameDetails(false)}
 
         />
