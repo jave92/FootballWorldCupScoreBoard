@@ -4,12 +4,15 @@ import Game from './components/Game'
 import GameDetails from './components/GameDetails';
 import { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
+import { useNavigate } from "react-router-dom";
 
 function App() {
 
   const [showGameDetails, setShowGameDetails] = useState(false);
 
   const [games, setGames] = useState([]);
+
+  let navigate = useNavigate();
 
   const finishGame = (id) => {
     //I use setGames() with .filter so React can detect the change in the array and render it again
@@ -28,19 +31,19 @@ function App() {
     game.id = uuidv4()
     setGames([...games, game]);
   }
+  
+  let newArr;
 
   const summary = games => {
-    let newArr = games.sort(
+    newArr = games.sort(
       function(a,b){
         if ((Number(a.homescore) + Number(a.awayscore)) < (Number(b.homescore) + Number(b.awayscore))) { return 1; }
         if ((Number(a.homescore) + Number(a.awayscore)) > (Number(b.homescore) + Number(b.awayscore))) { return -1; }
         return 0;
       }
     )
-    newArr.forEach((game, index) => {
-      let summary = index+1 + '. ' + game.homename + ' ' + game.homescore + ' - ' + game.awayname + ' ' + game.awayscore + '\n';
-      alert(summary);
-    });
+    
+    navigate("/summary", {state: {newArr}});
   }
 
   return (
