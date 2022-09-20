@@ -38,7 +38,8 @@ function App() {
       }
     )
     newArr.forEach((game, index) => {
-      console.log(index + ". " + game.homename + " " + game.homescore + " - " + game.awayname + " " + game.awayscore + "\n");
+      let summary = index+1 + '. ' + game.homename + ' ' + game.homescore + ' - ' + game.awayname + ' ' + game.awayscore + '\n';
+      alert(summary);
     });
   }
 
