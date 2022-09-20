@@ -6,11 +6,19 @@ function GameDetails(props){
 
     const {register, errors, handleSubmit} = useForm();
 
-    const onSubmit = (data, e) => {
-        console.log(data);
-
+    const onAdded = (data, e) => {
+        data.homescore = 0;
+        data.awayscore = 0;
         props.newGame(data);
 
+        e.target.reset();
+    }
+
+    const onUpdated = (data, e) => {
+        data.id = props.id;
+        data.homename = props.homename;
+        data.awayname = props.awayname;
+        props.updateGame(data);
         e.target.reset();
     }
 
@@ -26,10 +34,7 @@ function GameDetails(props){
         title = "Update Game Score";
     }
 
-    const changeHandler = () => {
-
-    }
-
+    //If empty props, then its a new Game
     if(!props.homename || !props.awayname){
         return(
             <div className="modal">
@@ -38,7 +43,7 @@ function GameDetails(props){
                         <h4 className="modal-title">{title}</h4>
                     </div>
                     <div className="modal-body">
-                        <form onSubmit={handleSubmit(onSubmit)}>
+                        <form onSubmit={handleSubmit(onAdded)}>
                             <div>
                             <label>Home team: </label>
                             <input type="text" {...register('homename', { required: true })}/>
@@ -46,7 +51,7 @@ function GameDetails(props){
                                 {errors?.homename?.message}
                             </div>
                             <label>Away team: </label>
-                            <input type="text" name="awayname" {...register('awayname', { required: true })}/>
+                            <input type="text" {...register('awayname', { required: true })}/>
                             <div>
                                 {errors?.awayname?.message}
                             </div>
@@ -60,6 +65,7 @@ function GameDetails(props){
                 </div>
             </div>
         );
+    //If props, then its an update
     }else{
         return(
             <div className="modal">
@@ -68,18 +74,20 @@ function GameDetails(props){
                         <h4 className="modal-title">{title}</h4>
                     </div>
                     <div className="modal-body">
-                        <form onSubmit={props.newGame}>
+                    <form onSubmit={handleSubmit(onUpdated)}>
                             <div>
-                            <label>
-                                Home team: <input name="homename" type="text" value={props.homename} onChange={changeHandler} />
-                            </label>
-                            </div>
+                            <label>Home team: {props.homename}</label>
+                            <input type="number" defaultValue={props.homescore ? props.homescore : 0} {...register('homescore', { required: true })}/>
                             <div>
-                            <label>
-                                Away team: <input name="awayname" type="text" value={props.homename} onChange={changeHandler} />
-                            </label>
+                                {errors?.homename?.message}
                             </div>
-                            <input type="submit" value="Submit" />
+                            <label>Away team: {props.awayname}</label>
+                            <input type="number" name="awayname" defaultValue={props.awayscore ? props.awayscore : 0} {...register('awayscore', { required: true })}/>
+                            <div>
+                                {errors?.awayname?.message}
+                            </div>
+                            </div>
+                            <button>Update score</button>
                         </form>
                     </div>
                     <div className="modal-footer">

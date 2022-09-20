@@ -10,20 +10,22 @@ function Game(props){
     const [showGameDetails, setShowGameDetails] = useState(false);
     const [isNewGame, setIsNewGame] = useState(true);
 
-    const [homeScore, setHomeScore] = useState(0);
-    const [awayScore, setAwayScore] = useState(0);
-
     const updateHandler = () => {
         setIsNewGame(false);
         setShowGameDetails(true);
     }
 
+    const updateGame = game => {
+        props.updateHandler(game);
+        
+    }
+
     return(
         <div className="game-container">
             <p className="team-name">{props.homename}</p>
-            <p className="team-score">{homeScore}</p>
+            <p className="team-score">{props.homescore ? props.homescore : 0}</p>
             <span className="score-separator">-</span>
-            <p className="team-score">{awayScore}</p>
+            <p className="team-score">{props.awayscore ? props.awayscore : 0}</p>
             <p className="team-name">{props.awayname}</p>
             <div className="buttons-container">
                 <Button 
@@ -39,11 +41,13 @@ function Game(props){
                 <GameDetails
                     show={showGameDetails}
                     isNewGame={isNewGame}
+                    updateGame={updateGame}
                     onClose={() => setShowGameDetails(false)}
+                    id={props.id}
                     homename={props.homename}
-                    awayname={props.homename}
-                    homescore={props.homename}
-                    awayscore={props.homename}
+                    awayname={props.awayname}
+                    homescore={props.homescore}
+                    awayscore={props.awayscore}
 
                 />
             </div>
