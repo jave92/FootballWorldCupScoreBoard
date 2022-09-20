@@ -36,6 +36,7 @@ function GameDetails(props){
 
     //If empty props, then its a new Game
     if(!props.homename || !props.awayname){
+        
         return(
             <div className="modal">
                 <div className="modal-content">
@@ -46,12 +47,12 @@ function GameDetails(props){
                         <form onSubmit={handleSubmit(onAdded)}>
                             <div>
                             <label>Home team: </label>
-                            <input type="text" {...register('homename', { required: true })}/>
+                            <input type="text" defaultValue="" {...register('homename', { required: true })}/>
                             <div>
                                 {errors?.homename?.message}
                             </div>
                             <label>Away team: </label>
-                            <input type="text" {...register('awayname', { required: true })}/>
+                            <input type="text" defaultValue="" {...register('awayname', { required: true })}/>
                             <div>
                                 {errors?.awayname?.message}
                             </div>

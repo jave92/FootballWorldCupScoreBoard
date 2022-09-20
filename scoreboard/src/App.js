@@ -29,11 +29,25 @@ function App() {
     setGames([...games, game]);
   }
 
+  const summary = games => {
+    let newArr = games.sort(
+      function(a,b){
+        if ((Number(a.homescore) + Number(a.awayscore)) < (Number(b.homescore) + Number(b.awayscore))) { return 1; }
+        if ((Number(a.homescore) + Number(a.awayscore)) > (Number(b.homescore) + Number(b.awayscore))) { return -1; }
+        return 0;
+      }
+    )
+    newArr.forEach((game, index) => {
+      console.log(index + ". " + game.homename + " " + game.homescore + " - " + game.awayname + " " + game.awayscore + "\n");
+    });
+  }
+
   return (
     <div className="App">
       <div className='main-container'>
         <h1>Football World Cup Score Board</h1>
         <button onClick={() => setShowGameDetails(true)} className='btn-newgame'>Add new game</button>
+        <button onClick={() => summary(games)} className='btn-summary'>Summary</button>
         {games.map( (item, index) => 
           <Game 
           key = {item.id}
