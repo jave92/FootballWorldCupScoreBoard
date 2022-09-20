@@ -29,16 +29,12 @@ function GameDetails(props){
                     <div className="modal-body">
                         <form onSubmit={props.newGame}>
                             <div>
-                            <label>
-                                Home team: <input type="text" onChange={changeHandler} />
-                            </label>
+                            <label>Home team: </label>
+                            <input type="text" name="homename" value="" />
+                            <label>Away team: </label>
+                            <input type="text" name="awayname" value="" />
                             </div>
-                            <div>
-                            <label>
-                                Away team: <input type="text" onChange={changeHandler} />
-                            </label>
-                            </div>
-                            <input type="submit" value="Submit" />
+                            <button>Add new game</button>
                         </form>
                     </div>
                     <div className="modal-footer">

@@ -3,6 +3,7 @@ import './App.css';
 import Game from './components/Game'
 import GameDetails from './components/GameDetails';
 import { useState } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 
 function App() {
 
@@ -29,7 +30,7 @@ function App() {
       homescore: 2,
       awayname: "Italia",
       awayscore: 1
-    }
+    },
   ]);
 
   const finishGame = (id) => {
@@ -44,8 +45,9 @@ function App() {
   const updateGame = (id) => {
   }
 
-  const newGame = obj => {
-    setGames(games => [...games, obj]);
+  const addGame = game => {
+    game.id = uuidv4()
+    setGames([...games, game]);
   }
 
   return (
@@ -68,7 +70,7 @@ function App() {
         <GameDetails
             show={showGameDetails}
             isNewGame={true}
-            newGame={newGame}
+            newGame={addGame}
             onClose={() => setShowGameDetails(false)}
 
         />
