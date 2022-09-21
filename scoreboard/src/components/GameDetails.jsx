@@ -57,11 +57,11 @@ function GameDetails(props){
                                 {errors?.awayname?.message}
                             </div>
                             </div>
-                            <button>Add new game</button>
+                            <button className="btn-accept">Add new game</button>
                         </form>
                     </div>
                     <div className="modal-footer">
-                        <button onClick={props.onClose} className="button">Close</button>
+                        <button onClick={props.onClose} className="btn-back">Close</button>
                     </div>
                 </div>
             </div>
@@ -88,11 +88,11 @@ function GameDetails(props){
                                 {errors?.awayname?.message}
                             </div>
                             </div>
-                            <button>Update score</button>
+                            <button className="btn-accept">Update score</button>
                         </form>
                     </div>
                     <div className="modal-footer">
-                        <button onClick={props.onClose} className="button">Close</button>
+                        <button onClick={props.onClose} className="btn-back">Close</button>
                     </div>
                 </div>
             </div>

@@ -55,3 +55,12 @@ h1{
   padding: 20px;
   text-align: center;
 }
+
+
+.btn-back{
+  height: 70px;
+  width: 140px;
+  background-color: gray;
+  padding: 20px;
+  text-align: center;
+}
