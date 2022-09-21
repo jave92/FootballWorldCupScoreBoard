@@ -1,0 +1,26 @@
+.summary-container{
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    flex-wrap: wrap;
+}
+
+.summary-content{
+    text-align: left;
+    line-height: 1.8em;
+    font-size: 1.5em;
+}
+
+.summary-buttons-container{
+    width: 100%;
+}
+
+.btn-back{
+    height: 70px;
+    width: 140px;
+    background-color: gray;
+    padding: 20px;
+    text-align: center;
+  }

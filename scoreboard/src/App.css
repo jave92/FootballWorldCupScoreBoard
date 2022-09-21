@@ -36,11 +36,22 @@ h1{
 
 .btn-newgame{
   position: fixed;
-  top: 50px;
-  left: 50px;
+  top: 15px;
+  left: 15px;
   height: 70px;
   width: 140px;
   background-color: green;
+  padding: 20px;
+  text-align: center;
+}
+
+.btn-summary{
+  position: fixed;
+  top: 95px;
+  left: 15px;
+  height: 70px;
+  width: 140px;
+  background-color: blue;
   padding: 20px;
   text-align: center;
 }
