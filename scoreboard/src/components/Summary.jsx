@@ -1,11 +1,7 @@
 import React from "react";
 import '../stylesheets/Summary.css'
-import { useLocation, useNavigate, Link } from "react-router-dom";
 
 function Summary(props){
-
-    const location = useLocation();
-    const navigate = useNavigate();
     const games = props.games;
     console.log(games);
     const goBack = () => {
