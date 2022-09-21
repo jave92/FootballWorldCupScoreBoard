@@ -1,14 +1,13 @@
-import logo from './logo.svg';
 import './App.css';
 import Game from './components/Game'
-import GameDetails from './components/GameDetails';
+import GameDetails from './components/NewGame';
 import { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import Summary from './components/Summary';
 
 function App() {
 
-  const [showGameDetails, setShowGameDetails] = useState(false);
+  const [showNewGame, setShowNewGame] = useState(false);
   const [showSummary, setShowSummary] = useState(false);
 
   const [games, setGames] = useState([]);
@@ -35,7 +34,7 @@ function App() {
     <div className="App">
       <div className='main-container'>
         <h1>Football World Cup Score Board</h1>
-        <button onClick={() => setShowGameDetails(true)} className='btn-newgame'>Add new game</button>
+        <button onClick={() => setShowNewGame(true)} className='btn-newgame'>Add new game</button>
         <button onClick={() => setShowSummary(true)} className='btn-summary'>Summary</button>
         {games.map( (item, index) => 
           <Game 
@@ -51,11 +50,10 @@ function App() {
         )}
         
         <GameDetails
-            show={showGameDetails}
-            showSetter={setShowGameDetails}
-            isNewGame={true}
+            show={showNewGame}
+            showSetter={setShowNewGame}
             newGame={addGame}
-            onClose={() => setShowGameDetails(false)}
+            onClose={() => setShowNewGame(false)}
         />
 
         <Summary

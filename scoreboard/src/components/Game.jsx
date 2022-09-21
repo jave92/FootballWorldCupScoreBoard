@@ -1,18 +1,16 @@
 import React from "react";
 import '../stylesheets/Game.css'
 import Button from './Button'
-import GameDetails from "./GameDetails";
+import UpdateGame from "./UpdateGame";
 import { useState } from 'react'
 
 function Game(props){
 
     
-    const [showGameDetails, setShowGameDetails] = useState(false);
-    const [isNewGame, setIsNewGame] = useState(true);
+    const [showUpdateGame, setShowUpdateGame] = useState(false);
 
     const updateHandler = () => {
-        setIsNewGame(false);
-        setShowGameDetails(true);
+        setShowUpdateGame(true);
     }
 
     const updateGame = game => {
@@ -38,12 +36,11 @@ function Game(props){
                     isUpdateButton={false}
                     handler={props.finishHandler}
                 />
-                <GameDetails
-                    show={showGameDetails}
-                    showSetter={setShowGameDetails}
-                    isNewGame={isNewGame}
+                <UpdateGame
+                    show={showUpdateGame}
+                    showSetter={setShowUpdateGame}
                     updateGame={updateGame}
-                    onClose={() => setShowGameDetails(false)}
+                    onClose={() => setShowUpdateGame(false)}
                     id={props.id}
                     homename={props.homename}
                     awayname={props.awayname}
