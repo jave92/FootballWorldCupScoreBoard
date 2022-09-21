@@ -1,8 +1,8 @@
 import React from "react";
-import '../stylesheets/GameDetails.css';
+import '../stylesheets/NewGame.css';
 import {useForm} from 'react-hook-form';
 
-function GameDetails(props){
+function NewGame(props){
 
     const {register, errors, handleSubmit} = useForm();
 
@@ -28,13 +28,11 @@ function GameDetails(props){
                 <div className="modal-body">
                     <form onSubmit={handleSubmit(onAdded)}>
                         <div>
-                            <label>Home team: </label>
-                            <input type="text" defaultValue="" {...register('homename', { required: true })}/>
+                            <input type="text" placeholder="Home team" defaultValue="" onChange={e=>props.homename = e.target.value} {...register('homename', { required: true })}/>
                             <div>
                                 {errors?.homename?.message}
                             </div>
-                            <label>Away team: </label>
-                            <input type="text" defaultValue="" {...register('awayname', { required: true })}/>
+                            <input type="text" placeholder="Away team" defaultValue="" {...register('awayname', { required: true })}/>
                             <div>
                                 {errors?.awayname?.message}
                             </div>
@@ -52,4 +50,4 @@ function GameDetails(props){
     
 }
 
-export default GameDetails;
+export default NewGame;

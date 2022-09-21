@@ -1,6 +1,6 @@
 import './App.css';
 import Game from './components/Game'
-import GameDetails from './components/NewGame';
+import NewGame from './components/NewGame';
 import { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import Summary from './components/Summary';
@@ -49,11 +49,13 @@ function App() {
           awayscore={item.awayscore}/>
         )}
         
-        <GameDetails
+        <NewGame
             show={showNewGame}
             showSetter={setShowNewGame}
             newGame={addGame}
             onClose={() => setShowNewGame(false)}
+            homename=''
+            awayname=''
         />
 
         <Summary

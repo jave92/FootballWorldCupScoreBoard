@@ -1,8 +1,8 @@
 import React from "react";
-import '../stylesheets/GameDetails.css';
+import '../stylesheets/UpdateGame.css';
 import {useForm} from 'react-hook-form';
 
-function GameDetails(props){
+function UpdateGame(props){
 
     const {register, errors, handleSubmit} = useForm();
 
@@ -52,4 +52,4 @@ function GameDetails(props){
     
 }
 
-export default GameDetails;
+export default UpdateGame;
