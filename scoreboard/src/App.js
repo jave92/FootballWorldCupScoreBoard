@@ -67,6 +67,7 @@ function App() {
         
         <GameDetails
             show={showGameDetails}
+            showSetter={setShowGameDetails}
             isNewGame={true}
             newGame={addGame}
             onClose={() => setShowGameDetails(false)}

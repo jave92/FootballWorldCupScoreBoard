@@ -12,6 +12,7 @@ function GameDetails(props){
         props.newGame(data);
 
         e.target.reset();
+        props.showSetter(false);
     }
 
     const onUpdated = (data, e) => {
@@ -20,6 +21,7 @@ function GameDetails(props){
         data.awayname = props.awayname;
         props.updateGame(data);
         e.target.reset();
+        props.showSetter(false);
     }
 
     var title = "";

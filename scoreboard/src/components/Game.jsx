@@ -40,6 +40,7 @@ function Game(props){
                 />
                 <GameDetails
                     show={showGameDetails}
+                    showSetter={setShowGameDetails}
                     isNewGame={isNewGame}
                     updateGame={updateGame}
                     onClose={() => setShowGameDetails(false)}
