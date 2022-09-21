@@ -3,7 +3,6 @@ import '../stylesheets/Summary.css'
 
 function Summary(props){
     const games = props.games;
-    console.log(games);
     const goBack = () => {
         props.showSetter(false);
     }

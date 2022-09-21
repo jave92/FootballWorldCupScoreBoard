@@ -48,16 +48,16 @@ function GameDetails(props){
                     <div className="modal-body">
                         <form onSubmit={handleSubmit(onAdded)}>
                             <div>
-                            <label>Home team: </label>
-                            <input type="text" defaultValue="" {...register('homename', { required: true })}/>
-                            <div>
-                                {errors?.homename?.message}
-                            </div>
-                            <label>Away team: </label>
-                            <input type="text" defaultValue="" {...register('awayname', { required: true })}/>
-                            <div>
-                                {errors?.awayname?.message}
-                            </div>
+                                <label>Home team: </label>
+                                <input type="text" defaultValue="" {...register('homename', { required: true })}/>
+                                <div>
+                                    {errors?.homename?.message}
+                                </div>
+                                <label>Away team: </label>
+                                <input type="text" defaultValue="" {...register('awayname', { required: true })}/>
+                                <div>
+                                    {errors?.awayname?.message}
+                                </div>
                             </div>
                             <button className="btn-accept">Add new game</button>
                         </form>
